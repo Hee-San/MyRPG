@@ -26,14 +26,14 @@ public class PlayerMove : MonoBehaviour {
 			animator.SetBool("Walk_Up_key", false);
 		}
 		if(Horizontal < 0){
-			animator.SetBool("Walk_Right_key", true);
-		}else{
-			animator.SetBool("Walk_Right_key", false);
-		}
-		if(Horizontal > 0){
 			animator.SetBool("Walk_Left_key", true);
 		}else{
 			animator.SetBool("Walk_Left_key", false);
+		}
+		if(Horizontal > 0){
+			animator.SetBool("Walk_Right_key", true);
+		}else{
+			animator.SetBool("Walk_Right_key", false);
 		}
 	}
 }
