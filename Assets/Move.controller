@@ -584,7 +584,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: WalkD
+  m_Name: Walk_D
   m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:

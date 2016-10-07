@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour {
 	Animator animator;
 	public float Vertical;
 	public float Horizontal;
+	public bool UpTrigger, DownTrigger, RightTrigger, LeftTrigger;
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator>();
