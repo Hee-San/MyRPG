@@ -17,6 +17,7 @@ public class Trigger : MonoBehaviour {
 		switch (other.gameObject.tag) {
 		case "Water":
 			//PlayerMoveのBoolの値変更
+			Debug.Log ("trigger");
 			break;
 		}
 	}
