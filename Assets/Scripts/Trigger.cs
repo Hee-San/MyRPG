@@ -13,7 +13,7 @@ public class Trigger : MonoBehaviour {
 	void Update () {
 	
 	}
-	void OnCollisionEnter2D(Collider2D other){
+	void OnTriggerStay2D(Collider2D other){
 		Debug.Log ("trigger");
 		switch (other.gameObject.tag) {
 		case "Water":
