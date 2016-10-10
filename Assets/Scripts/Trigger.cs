@@ -13,7 +13,8 @@ public class Trigger : MonoBehaviour {
 	void Update () {
 	
 	}
-	void OnTriggerEnter2D(Collider2D other){
+	void OnCollisionEnter2D(Collider2D other){
+		Debug.Log ("trigger");
 		switch (other.gameObject.tag) {
 		case "Water":
 			//PlayerMoveのBoolの値変更
