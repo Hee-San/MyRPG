@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Trigger : MonoBehaviour {
-
+	public float dist;
 	// Use this for initialization
 	void Start () {
 	
@@ -11,15 +11,21 @@ public class Trigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		RayNextTile (Vector2.up);
+		RayNextTile (Vector2.right);
+		RayNextTile (Vector2.down);
+		RayNextTile (Vector2.left);
 	}
-	void OnTriggerStay2D(Collider2D other){
-		Debug.Log ("trigger");
-		switch (other.gameObject.tag) {
-		case "Water":
-			//PlayerMoveのBoolの値変更
-			Debug.Log ("trigger");
-			break;
+
+	public void RayNextTile(Vector2 vec){
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, vec, distance:dist);
+		if (hit.collider != null) {
+			Debug.Log (hit.transform.name);
+			switch (hit.transform.tag) {
+			case "Water":
+				//PlayerMoveのBoolの値変更
+				break;
+			}
 		}
 	}
 }
