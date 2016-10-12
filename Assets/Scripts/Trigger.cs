@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Trigger : MonoBehaviour {
 	public float dist;
+	public bool wall_up, wall_right, wall_down, wall_left;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -11,21 +13,22 @@ public class Trigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		RayNextTile (Vector2.up);
-		RayNextTile (Vector2.right);
-		RayNextTile (Vector2.down);
-		RayNextTile (Vector2.left);
+		wall_up = RayNextTile (Vector2.up);
+		wall_right = RayNextTile (Vector2.right);
+		wall_down = RayNextTile (Vector2.down);
+		wall_left = RayNextTile (Vector2.left);
 	}
 
-	public void RayNextTile(Vector2 vec){
+	public bool RayNextTile(Vector2 vec){
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, vec, distance:dist);
 		if (hit.collider != null) {
 			Debug.Log (hit.transform.name);
 			switch (hit.transform.tag) {
 			case "Water":
-				//PlayerMoveのBoolの値変更
+				return true;
 				break;
 			}
 		}
+		return false;
 	}
 }

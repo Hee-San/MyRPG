@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour {
 	public float Vertical;
 	public float Horizontal;
 	public bool UpTrigger, DownTrigger, RightTrigger, LeftTrigger;
+	private Component Trigger;
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator>();
@@ -20,22 +21,22 @@ public class PlayerMove : MonoBehaviour {
 	void Update () {
 		Vertical = Input.GetAxisRaw ("Vertical");
 		Horizontal = Input.GetAxisRaw ("Horizontal");
-		if(Vertical < 0 && !DownTrigger){
+		if(Vertical < 0 && !GetComponent<Trigger> ().wall_down){
 			animator.SetTrigger("Walk_Down_key");
 		}else{
 			animator.ResetTrigger("Walk_Down_key");
 		}
-		if(Vertical > 0 && !UpTrigger){
+		if(Vertical > 0 && !GetComponent<Trigger> ().wall_up){
 			animator.SetTrigger("Walk_Up_key");
 		}else{
 			animator.ResetTrigger("Walk_Up_key");
 		}
-		if(Horizontal < 0 && !LeftTrigger){
+		if(Horizontal < 0 && !GetComponent<Trigger> ().wall_left){
 			animator.SetTrigger("Walk_Left_key");
 		}else{
 			animator.ResetTrigger("Walk_Left_key");
 		}
-		if(Horizontal > 0 && !RightTrigger){
+		if(Horizontal > 0 && !GetComponent<Trigger> ().wall_right){
 			animator.SetTrigger("Walk_Right_key");
 		}else{
 			animator.ResetTrigger("Walk_Right_key");
