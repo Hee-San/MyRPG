@@ -41861,7 +41861,7 @@ GameObject:
   - 114: {fileID: 1621379796}
   - 114: {fileID: 1621379795}
   m_Layer: 0
-  m_Name: playerCat
+  m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41948,6 +41948,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dist: 16
+  wall_up: 0
+  wall_right: 0
+  wall_down: 0
+  wall_left: 0
 --- !u!114 &1621379796
 MonoBehaviour:
   m_ObjectHideFlags: 0

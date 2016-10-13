@@ -20,7 +20,7 @@ public class Trigger : MonoBehaviour {
 	}
 
 	public bool RayNextTile(Vector2 vec){
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, vec, distance:dist);
+		RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(8,8), 0, vec, distance:dist);
 		if (hit.collider != null) {
 			Debug.Log (hit.transform.name);
 			switch (hit.transform.tag) {
