@@ -13,14 +13,14 @@ public class Trigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		wall_up = RayNextTile (Vector2.up);
-		wall_right = RayNextTile (Vector2.right);
-		wall_down = RayNextTile (Vector2.down);
-		wall_left = RayNextTile (Vector2.left);
+		wall_up = RayNextTile (Vector2.up, dist);
+		wall_right = RayNextTile (Vector2.right, dist);
+		wall_down = RayNextTile (Vector2.down, dist);
+		wall_left = RayNextTile (Vector2.left, dist);
 	}
 
-	public bool RayNextTile(Vector2 vec){
-		RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(8,8), 0, vec, distance:dist);
+	public bool RayNextTile(Vector2 vec, float distance){
+		RaycastHit2D hit = Physics2D.BoxCast(transform.position + new Vector3(0,-4,0), new Vector2(4,4), 0, vec, distance:distance);
 		if (hit.collider != null) {
 			Debug.Log (hit.transform.name);
 			switch (hit.transform.tag) {
